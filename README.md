@@ -5,7 +5,7 @@ A workout planner and log that I would want to use.
 
 ## Project Overview
 
-A workout planner built with [django](https://www.djangoproject.com) that generates custom data tables to fit the users needs and saves them into a database for future reference. 
+A workout planner built with [django](https://www.djangoproject.com) that generates custom data tables to fit the users needs and saves them into a database for future reference.
 
 ## Functionality
 
@@ -47,4 +47,3 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
       - workouts associated with muscle groups
 - Week 3
 - styling, motivational quote
-
