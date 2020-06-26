@@ -29,9 +29,11 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
 - id (IntegerField)
 - muscle_group (CharField)
 - image_url (CharField)
+
 **User**
 - user_name (CharField)
   - (use a custom class to generate user info)
+
 **Wokout**
 - date_time (DateTimeField)
 - set (IntegerField)
