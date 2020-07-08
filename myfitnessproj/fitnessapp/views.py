@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from . import secrets
 from django.http import HttpResponse
 
 @login_required
@@ -19,7 +20,7 @@ def login(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse('users:index/'))
+        return HttpResponseRedirect(reverse('users:index'))
     else:
         return render(request, 'users/login.html', {'message': 'invalid username or password'})
 
@@ -27,3 +28,6 @@ def login(request):
 def logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('users:login'))
+
+# def register_user(request):
+#     ...
