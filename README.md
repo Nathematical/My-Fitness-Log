@@ -32,7 +32,6 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
 
 **User**
 - user_name (CharField)
-  - (use a custom class to generate user info)
 
 **Workout**
 - date_time (DateTimeField)
