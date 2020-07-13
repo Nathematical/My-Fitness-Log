@@ -6,6 +6,15 @@
 <h1>Register</h1>
 <form action="{% url 'log_users:register' %}" method="post">
     {% csrf_token %}
+    <!-- alert for passwords not matching -->
+    <div id="pw_match_alert" class="alert alert-warning" role="alert" style="display: none">
+        Passwords don't match!
+    </div>
+    {% if warning %}
+    <div id="pw_match_alert" class="alert alert-warning" role="alert" style="display: none">
+        {{warning}}
+    </div>
+    {% endif %}
     <!-- username -->
     <div class="form-group">
         <label for="input_username">Username</label>
@@ -16,15 +25,6 @@
         <label for="input_email">Email</label>
         <input type="email" class="form-control" id="input_email" name="email" placeholder="Enter email" required>
     </div>
-    <!-- alert for passwords not matching -->
-    <div id="pw_match_alert" class="alert alert-warning" role="alert" style="display: none">
-        Passwords don't match!
-    </div>
-    {% if warning %}
-    <div id="pw_match_alert" class="alert alert-warning" role="alert" style="display: none">
-        {{warning}}
-    </div>
-    {% endif %}
     <!-- password -->
     <div class="form-group">
         <label for="input_password">Password</label>
