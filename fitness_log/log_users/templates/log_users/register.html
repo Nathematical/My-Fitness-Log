@@ -1,9 +1,9 @@
 {% extends 'log_app/main.html' %}
 
 {% block title %}Register{% endblock %}
-{% block header %}Register{% endblock %}
 
 {% block content %}
+<h1>Register</h1>
 <form action="{% url 'log_users:register' %}" method="post">
     {% csrf_token %}
     <!-- username -->
@@ -16,6 +16,15 @@
         <label for="input_email">Email</label>
         <input type="email" class="form-control" id="input_email" name="email" placeholder="Enter email" required>
     </div>
+    <!-- alert for passwords not matching -->
+    <div id="pw_match_alert" class="alert alert-warning" role="alert" style="display: none">
+        Passwords don't match!
+    </div>
+    {% if warning %}
+    <div id="pw_match_alert" class="alert alert-warning" role="alert" style="display: none">
+        {{warning}}
+    </div>
+    {% endif %}
     <!-- password -->
     <div class="form-group">
         <label for="input_password">Password</label>
@@ -24,10 +33,23 @@
     <!-- retype password -->
     <div class="form-group">
         <label for="input_retype_pw">Retype Password</label>
-        <input type="password" class="form-control" id="input_retype_pw" name="retype_pw" placeholder="Enter Password" required >
+        <input type="password" class="form-control" id="input_retype_pw" name="retype_pw" placeholder="Retype password" required >
     </div>
     <!-- submit button -->
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button id="submit_btn" type="submit" class="btn btn-primary">Submit</button>
 
 </form>
+<script type="text/javascript">
+    let submit_btn = document.querySelector('#submit_btn')
+    let input_password = document.querySelector('#input_password')
+    let input_retype_pw = document.querySelector('#input_retype_pw')
+    let pw_match_alert = document.querySelector('#pw_match_alert')
+    submit_btn.addEventListener('click', function(event) {
+        // prevent form submission if passwords don't match
+        if (input_password.value != input_retype_pw.value) {
+            event.preventDefault()
+            pw_match_alert.style.display = ''
+        }
+    })
+</script>
 {% endblock %}

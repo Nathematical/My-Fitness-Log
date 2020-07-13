@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>FitnessLog - {% block title %}{% endblock %}</title>
+    <!-- vue and ajax cdns -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <h1>{% block header %}{% endblock %}</h1>
-        </header>
+        <!-- As a heading -->
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Fitness Log</span>
+        </nav>
+        <!-- As a link -->
+        <!-- <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+        </nav> -->
         <main>
             {% block content %}
             {% endblock %}
