@@ -116,6 +116,7 @@ USE_L10N = True
 USE_TZ = True
 
 AUTH_USER_MODEL = 'log_users.User'
+LOGIN_URL = '/log_users/login/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

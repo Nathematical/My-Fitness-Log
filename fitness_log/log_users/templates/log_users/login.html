@@ -1,0 +1,28 @@
+{% extends 'log_app/main.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+<form action="{% url 'log_users:login' %}" method="post">
+    {% csrf_token %}
+    {% if warning %}
+    <div id="user_pw_check" class="alert alert-warning" role="alert" style="display: none">
+        {{warning}}
+    </div>
+    {% endif %}
+    <!-- username -->
+    <div class="form-group">
+        <label for="input_username">Username</label>
+        <input type="text" class="form-control" id="input_username" name="username" placeholder="Enter username" required>
+    </div>
+    <!-- password -->
+    <div class="form-group">
+        <label for="input_password">Password</label>
+        <input type="password" class="form-control" id="input_password" name="password" placeholder="Enter password" required >
+    </div>
+    <!-- submit button -->
+    <button id="submit_btn" type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+{% endblock %}
