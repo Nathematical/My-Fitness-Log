@@ -27,7 +27,9 @@
             {% endblock %}
         </main>
         <footer>
-            &copy; Class Armadillo 2020
+            <div class="footer">
+                <span class="text-muted">&copy; Class Armadillo 2020</span>
+            </div>
         </footer>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -42,7 +44,7 @@
     <script>
         axios({
             method: 'get',
-            url:"https://wger.de/api/v2/exercise/",
+            url:"https://wger.de/api/v2/exercise?muscles=1&language=2&license_author=wger.de",
             headers: {Authorization: 'Token 221d1f2e24c705861d9670347b85e9f872dbc1e0'}
         })
         .then(response => {

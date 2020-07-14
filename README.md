@@ -10,8 +10,8 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
 ## Functionality
 
 - [ ] display motivational quote of the day
-- [ ] create user
-    - [ ] log in
+- [x] create user
+    - [x] log in
 - [ ] select muscle group
     - [ ] choose exercises
     - [ ] generate random workout
