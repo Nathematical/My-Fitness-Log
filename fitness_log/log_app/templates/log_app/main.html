@@ -39,6 +39,16 @@
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
     </div>
+    <script>
+        axios({
+            method: 'get',
+            url:"https://wger.de/api/v2/exercise/",
+            headers: {Authorization: 'Token 221d1f2e24c705861d9670347b85e9f872dbc1e0'}
+        })
+        .then(response => {
+            console.log(response.data)
+        })
+    </script>
 </body>
 
 </html>
