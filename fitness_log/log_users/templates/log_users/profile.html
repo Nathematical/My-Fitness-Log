@@ -3,5 +3,25 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Fitness Log</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#">New Workout</a>
+        <a class="nav-item nav-link" href="#">Workout History</a>
+        <a class="nav-item nav-link" href="{% url 'log_users:logout' %}">Logout</a>
+      </div>
+    </div>
+  </nav>
 <h1>{{user.username}}</h1>
+<!-- add user image -->
+<ul class="profile_info">
+    <li>Fisrt name: {{user.first_name}}</li>
+    <li>Last name: {{user.last_name}}</li>
+    <li>Email: {{user.email}}</li>
+</ul>
+
 {% endblock %}

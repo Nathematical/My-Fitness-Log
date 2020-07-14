@@ -20,6 +20,16 @@
         <label for="input_username">Username</label>
         <input type="text" class="form-control" id="input_username" name="username" placeholder="Enter username" required>
     </div>
+    <!-- first name -->
+    <div class="form-group">
+        <label for="input_fname">First Name</label>
+        <input type="text" class="form-control" id="input_fname" name="first_name" placeholder="Enter your first name" required>
+    </div>
+    <!-- last name -->
+    <div class="form-group">
+        <label for="input_lname">Last Name</label>
+        <input type="text" class="form-control" id="input_lname" name="last_name" placeholder="Enter your last name" required>
+    </div>
     <!-- email -->
     <div class="form-group">
         <label for="input_email">Email</label>
@@ -37,8 +47,10 @@
     </div>
     <!-- submit button -->
     <button id="submit_btn" type="submit" class="btn btn-primary">Submit</button>
-
 </form>
+
+<div>Already have an account? <a href="{% url 'log_users:login' %}">Login</a> </div>
+
 <script type="text/javascript">
     let submit_btn = document.querySelector('#submit_btn')
     let input_password = document.querySelector('#input_password')

@@ -51,7 +51,8 @@ def login(request):
 
 
 def logout(request):
-    return HttpResponse('User logout')
+    django.contrib.auth.logout(request)
+    return HttpResponseRedirect(reverse('log_users:login'))
 
 @login_required
 def profile(request):
