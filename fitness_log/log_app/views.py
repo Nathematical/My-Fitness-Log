@@ -6,3 +6,6 @@ def index(request):
 
 def main(request):
     return render(request, 'log_app/main.html')
+
+def new_workout(request):
+    return render(request, 'log_app/workout.html')

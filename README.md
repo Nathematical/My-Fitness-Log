@@ -45,10 +45,10 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
 ## Scedule
 
 - Week 1
-  - [ ] create django project
+  - [x] create django project
   - [ ] create models
-  - [ ] user registration
-  - [ ] user log in
+  - [x] user registration
+  - [x] user log in
 - Week 2
   - [ ] create muscle groups (types)
   - [ ] custom management command to load exercises into database
