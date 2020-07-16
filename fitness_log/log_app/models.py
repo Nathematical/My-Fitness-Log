@@ -1,17 +1,25 @@
 from django.db import models
 
 
-class MuscleGroup(models.Model):
+class Workout(models.Model):
+    date_created = models.DateTimeField()
     name = models.CharField(max_length=200)
-    api_id = models.IntegerField()
-    
+
+    class Meta:
+        ordering = ['-date_created']
+
     def __str__(self):
         return self.name
 
-
+        
 class Exercise(models.Model):
+    category = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
-    muscle_group = models.ManyToManyField(MuscleGroup, related_name='exercises')
+    sets = models.IntegerField()
+    reps = models.IntegerField()
+    weight_lifted = models.IntegerField()
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE, related_name='exercises')
 
     def __str__(self):
         return self.name
+

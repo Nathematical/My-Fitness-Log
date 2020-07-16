@@ -1,0 +1,10 @@
+{% extends 'log_app/main.html' %}
+
+{% block title %}Workout{% endblock %}
+
+{% block content %}
+<h1>Fitness Log</h1>
+<br>
+<a href="{% url 'log_users:login' %}">Login</a>
+<a href="{% url 'log_users:register' %}">Register</a>
+{% endblock %}
