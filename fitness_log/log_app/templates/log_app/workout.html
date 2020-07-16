@@ -23,18 +23,18 @@
     <br>
     <form action="{% url 'log_app:new_workout' %}" method="post">
         {% csrf_token %}
-        <!-- <div v-for="category in categories">{{test}}</div> -->
         <select v-model="category" v-on:change="get_exercises">
-            <!-- <option >Choose Category</option> -->
+            <option value="">Select a Category</option>
             <option v-for="category in categories" v-bind:value="category.id">[[category.name]]</option>
         </select>
-        <select v-show="exercises.length > 0" v-model="exercise" v-on:change="get_exercises">
-            <!-- <option >Choose Category</option> -->
+        <select v-show="exercises.length > 0" v-model="exercise">
+            <option value="">Select an Exercise</option>
             <option v-for="exercise in exercises" v-bind:value="exercise.id">[[exercise.name]]</option>
         </select>
-        <!-- <select type="number" name="exercise_catetgory" placeholder="Select category" required/>
-    <select type="number" name="exercise" placeholder="Select exercise" required/>
-    <select type="number" name="num_of_sets" placeholder="Select sets" required/> -->
+        <select v-model="set">
+            <option v-for="set in sets" v-bind:value="set">[[set]]</option>
+        </select>
+
         <!-- <button v-on:click="add_exercise">add exercise</button> -->
     </form>
 </div>
@@ -47,23 +47,24 @@
             exercises: [],
             category: "",
             categories: [],
+            set: "",
             sets: [1,2,3,4,5,6]
         },
         methods: {
             get_exercises: function () {
-                console.log("ok")
+                console.log(this.category)
                 axios({
                     method: 'get',
-                    url: `https://wger.de/api/v2/exercise?category=${this.category}&language=2&license_author=wger.de`,
+                    url: `https://wger.de/api/v2/exercise/?category=${this.category}&language=2&license_author=wger.de`,
                     headers: { Authorization: wger_api_key },
                 })
-                    .then(response => {
-                        console.log(response.data)
-                        this.exercises = response.data
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
+                .then(response => {
+                    console.log(response.data)
+                    this.exercises = response.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
             }
         },
         created: function () {
@@ -80,5 +81,6 @@
                 })
         }
     })
+
 </script>
 {% endblock %}

@@ -35,11 +35,11 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
 
 **Workout**
 - date_time (DateTimeField)
+- exercise (ManyToManyField)
 - set (IntegerField)
 - reps (IntegerField)
 - user_weight (IntegerField)
 - weight_lifted (IntegerField)
-- exercise (ManyToManyField)
 - user (ForeignKey)
 
 ## Scedule
