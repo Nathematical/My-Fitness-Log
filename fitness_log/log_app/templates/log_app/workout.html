@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="{% url 'log_users:profile' %}">Profile</a>
-            <a class="nav-item nav-link" href="#">Workout History</a>
+            <a class="nav-item nav-link" href="{% url 'log_app:workout_history' %}">Workout History</a>
             <a class="nav-item nav-link" href="{% url 'log_users:logout' %}">Logout</a>
         </div>
     </div>
@@ -21,6 +21,10 @@
 <div id="app">
     <h1>New Workout</h1>
     <br>
+    <table>
+        {% for exercise in exercises %}
+        {% endfor %}
+    </table>
     <form action="{% url 'log_app:new_workout' %}" method="post">
         {% csrf_token %}
         <select v-model="category" v-on:change="get_exercises">
