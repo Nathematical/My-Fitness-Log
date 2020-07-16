@@ -3,6 +3,10 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
+<!-- As a heading -->
+<nav class="navbar navbar-dark bg-primary">
+    <span class="navbar-brand mb-0 h1">Fitness Log</span>
+</nav>
 <h1>Register</h1>
 <form action="{% url 'log_users:register' %}" method="post">
     {% csrf_token %}

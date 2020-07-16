@@ -42,19 +42,32 @@
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
     </div>
-    <script>
+    <!-- <script>
         axios({
             method: 'get',
-            url:"https://wger.de/api/v2/exercise?muscles=2&language=2&license_author=wger.de",
+            url:"https://wger.de/api/v2/exercise?category=11&language=2&license_author=wger.de",
             headers: {Authorization: wger_api_key},
         })
         .then(response => {
             console.log(response.data)
+            exercises = response.data
         })
         .catch(err => {
             console.log(err)
         })
-    </script>
+        axios({
+            method: 'get',
+            url:"https://wger.de/api/v2/exercisecategory/",
+            headers: {Authorization: wger_api_key},
+        })
+        .then(response => {
+            console.log(response.data)
+            exercise_categories = response.data
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    </script> -->
 </body>
 
 </html>
