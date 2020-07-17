@@ -19,11 +19,30 @@
     </div>
 </nav>
 <h1>Current Workout</h1>
-<ul>
+<table>
+    <tr>
+        <th><b>Exercise</b></th>
+        <th><b>Set 1</b></th>
+        <th><b>Set 2</b></th>
+        <th><b>Set 3</b></th>
+        <th><b>Set 4</b></th>
+    </tr>
+    {% for exercise in exercises %}
+    <tr>
+        <td>{{exercise.name}}</td>
+        <td>{{exercise.set1_reps}} x {{exercise.set1_weight_lifted}}</td>
+        <td>{{exercise.set2_reps}} x {{exercise.set2_weight_lifted}}</td>
+        <td>{{exercise.set3_reps}} x {{exercise.set3_weight_lifted}}</td>
+        <td>{{exercise.set4_reps}} x {{exercise.set4_weight_lifted}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- <ul>
     {% for exercise in exercises %}
     <li>{{exercise.name}} | {{exercise.set1_reps}} x {{exercise.set1_weight_lifted}} | {{exercise.set2_reps}} x
         {{exercise.set2_weight_lifted}} | {{exercise.set3_reps}} x {{exercise.set3_weight_lifted}} |
-        {{exercise.set4_reps}} x {{exercise.set4_weight_lifted}} |</li>
+        {{exercise.set4_reps}} x {{exercise.set4_weight_lifted}} |<hr class="solid"></li>
     {% endfor %}
-</ul>
+</ul> -->
 {% endblock %}

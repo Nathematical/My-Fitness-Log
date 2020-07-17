@@ -1,5 +1,5 @@
 from django.db import models
-from log_users.models import User
+# from log_users.models import User
 
 
 class Workout(models.Model):
@@ -25,8 +25,8 @@ class Exercise(models.Model):
     set2_weight_lifted = models.CharField(max_length=200)
     set3_weight_lifted = models.CharField(max_length=200)
     set4_weight_lifted = models.CharField(max_length=200)
-    workout = models.ForeignKey(Workout, on_delete=models.PROTECT, related_name='exercises')
-    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='exercises')
+    # workout = models.ForeignKey(Workout, on_delete=models.PROTECT, related_name='exercises')
+    # user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='exercises')
 
     def __str__(self):
         return self.name
