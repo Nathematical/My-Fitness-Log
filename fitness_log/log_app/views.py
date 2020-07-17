@@ -51,4 +51,8 @@ def current_workout(request):
 
 @login_required
 def workout_history(request):
+    # workout = Workout.objects.all()
+    # context = {
+
+    # }
     return render(request, 'log_app/workout_history.html')
