@@ -14,7 +14,17 @@ def add_exercise(request):
     if request.method == "POST":
         print(request.POST)
 
+
     return render(request, 'log_app/exercise.html')
+
+@login_required
+def current_workout(request):
+    exercises = Exercise.objects.all()
+    context = {
+        'exercises': exercises,
+    }
+    return render(request, 'log_app/current_workout.html', context)
+
 
 @login_required
 def workout_history(request):

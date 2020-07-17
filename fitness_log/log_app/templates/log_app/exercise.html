@@ -12,6 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="{% url 'log_users:profile' %}">Profile</a>
+            <a class="nav-item nav-link" href="{% url 'log_app:current_workout' %}">Workout</a>
             <a class="nav-item nav-link" href="{% url 'log_app:workout_history' %}">Workout History</a>
             <a class="nav-item nav-link" href="{% url 'log_users:logout' %}">Logout</a>
         </div>
@@ -21,15 +22,15 @@
 <div id="app">
     <h1>Add Exercise</h1>
     <br>
-    <table>
-        <!-- {% for exercise in exercises %}
-        {% endfor %} -->
-    </table>
+    <!-- <table>
+        {% for exercise in exercises %}
+        {% endfor %}
+    </table> -->
     <form action="{% url 'log_app:add_exercise' %}" method="post">
         <div class="form-group">
             {% csrf_token %}
 
-            <span style="display: block;">Exercise</span>
+            <span style="display: block;"><b>Exercise</b></span>
             <!-- select the muscle group -->
             <select name="category" v-model="category" v-on:change="get_exercises">
                 <option value="">Select a Category</option>
@@ -47,7 +48,7 @@
             </select>
             <br>
 
-            <span style="display: block;">Set 1</span>
+            <span style="display: block;"><b>Set 1</b></span>
             <select name="set1_reps" v-model="set1_reps">
                 <option value="">Number of Reps</option>
                 <option v-for="set1_reps in reps" v-bind:value="set1_reps">[[set1_reps]]</option>
@@ -56,7 +57,7 @@
                 placeholder="Enter weight lifted" />
             <br>
 
-            <span style="display: block;">Set 2</span>
+            <span style="display: block;"><b>Set 2</b></span>
             <select name="set2_reps" v-model="set2_reps">
                 <option value="">Number of Reps</option>
                 <option v-for="set2_reps in reps" v-bind:value="set2_reps">[[set2_reps]]</option>
@@ -65,7 +66,7 @@
                 placeholder="Enter weight lifted" />
             <br>
 
-            <span style="display: block;">Set 3</span>
+            <span style="display: block;"><b>Set 3</b></span>
             <select name="set3_reps" v-model="set3_reps">
                 <option value="">Number of Reps</option>
                 <option v-for="set3_reps in reps" v-bind:value="set3_reps">[[set3_reps]]</option>
@@ -74,7 +75,7 @@
                 placeholder="Enter weight lifted" />
             <br>
 
-            <span style="display: block;">Set 4</span>
+            <span style="display: block;"><b>Set 4</b></span>
             <select name="set4_reps" v-model="set4_reps">
                 <option value="">Number of Reps</option>
                 <option v-for="set4_reps in reps" v-bind:value="set4_reps">[[set4_reps]]</option>

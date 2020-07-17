@@ -3,7 +3,7 @@ from log_users.models import User
 
 
 class Workout(models.Model):
-    date_created = models.DateTimeField()
+    date_created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=200)
 
     class Meta:

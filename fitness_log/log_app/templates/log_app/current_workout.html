@@ -1,6 +1,6 @@
 {% extends 'log_app/main.html' %}
 
-{% block title %}Workout History{% endblock %}
+{% block title %}Workout{% endblock %}
 
 {% block content %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -13,12 +13,17 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="{% url 'log_users:profile' %}">Profile</a>
             <a class="nav-item nav-link" href="{% url 'log_app:add_exercise' %}">New Exercise</a>
-            <a class="nav-item nav-link" href="{% url 'log_app:current_workout' %}">Workout</a>
+            <a class="nav-item nav-link" href="{% url 'log_app:workout_history' %}">Workout History</a>
             <a class="nav-item nav-link" href="{% url 'log_users:logout' %}">Logout</a>
         </div>
     </div>
 </nav>
-
-<h1>Workout History</h1>
-
+<h1>Current Workout</h1>
+<ul>
+    {% for exercise in exercises %}
+    <li>{{exercise.name}} | {{exercise.set1_reps}} x {{exercise.set1_weight_lifted}} | {{exercise.set2_reps}} x
+        {{exercise.set2_weight_lifted}} | {{exercise.set3_reps}} x {{exercise.set3_weight_lifted}} |
+        {{exercise.set4_reps}} x {{exercise.set4_weight_lifted}} |</li>
+    {% endfor %}
+</ul>
 {% endblock %}

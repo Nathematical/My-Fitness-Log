@@ -11,7 +11,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <!-- <a class="nav-item nav-link" href="#">New Workout</a> -->
-        <a class="nav-item nav-link" href="{% url 'log_app:add_exercise' %}">New Execise</a>
+        <a class="nav-item nav-link" href="{% url 'log_app:add_exercise' %}">New Exercise</a>
+        <a class="nav-item nav-link" href="{% url 'log_app:current_workout' %}">Workout</a>
         <a class="nav-item nav-link" href="{% url 'log_app:workout_history' %}">Workout History</a>
         <a class="nav-item nav-link" href="{% url 'log_users:logout' %}">Logout</a>
       </div>
