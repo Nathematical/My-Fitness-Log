@@ -1,6 +1,6 @@
 {% extends 'log_app/main.html' %}
 
-{% block title %}Workout{% endblock %}
+{% block title %}Exercise{% endblock %}
 
 {% block content %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -19,30 +19,34 @@
 </nav>
 
 <div id="app">
-    <h1>New Workout</h1>
+    <h1>Add Exercise</h1>
     <br>
     <table>
         <!-- {% for exercise in exercises %}
         {% endfor %} -->
     </table>
-    <span style="display: block;">Exercise</span>
-    <form action="{% url 'log_app:new_workout' %}" method="post">
+    <form action="{% url 'log_app:add_exercise' %}" method="post">
         <div class="form-group">
             {% csrf_token %}
+
+            <span style="display: block;">Exercise</span>
+            <!-- select the muscle group -->
             <select name="category" v-model="category" v-on:change="get_exercises">
                 <option value="">Select a Category</option>
                 <option v-for="category in categories" v-bind:value="category.id">[[category.name]]</option>
             </select>
-
+            <!-- select an exercise -->
             <select name="exercise" v-show="exercises.length > 0" v-model="exercise">
                 <option value="">Select an Exercise</option>
                 <option v-for="exercise in exercises" v-bind:value="exercise.name">[[exercise.name]]</option>
             </select>
+            <!-- select the number of sets; disabled for now -->
             <select v-model="set" disabled>
                 <option value="">Sets</option>
                 <option v-for="set in sets" v-bind:value="set">[[set]]</option>
             </select>
             <br>
+
             <span style="display: block;">Set 1</span>
             <select name="set1_reps" v-model="set1_reps">
                 <option value="">Number of Reps</option>
@@ -51,6 +55,7 @@
             <input name="set1_weight_lifted" type="text" v-model="set1_weight_lifted"
                 placeholder="Enter weight lifted" />
             <br>
+
             <span style="display: block;">Set 2</span>
             <select name="set2_reps" v-model="set2_reps">
                 <option value="">Number of Reps</option>
@@ -59,6 +64,7 @@
             <input name="set2_weight_lifted" type="text" v-model="set2_weight_lifted"
                 placeholder="Enter weight lifted" />
             <br>
+
             <span style="display: block;">Set 3</span>
             <select name="set3_reps" v-model="set3_reps">
                 <option value="">Number of Reps</option>

@@ -5,6 +5,6 @@ app_name = 'log_app'
 urlpatterns = [
     path('', views.index, name='index'),
     path('main/', views.main, name='main'),
-    path('new_workout/', views.new_workout, name='new_workout'),
+    path('add_exercise/', views.add_exercise, name='add_exercise'),
     path('workout_history', views.workout_history, name='workout_history')
 ]

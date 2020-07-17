@@ -10,10 +10,11 @@ def main(request):
     return render(request, 'log_app/main.html')
 
 @login_required
-def new_workout(request):
+def add_exercise(request):
     if request.method == "POST":
         print(request.POST)
-    return render(request, 'log_app/workout.html')
+
+    return render(request, 'log_app/exercise.html')
 
 @login_required
 def workout_history(request):
