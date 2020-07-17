@@ -11,13 +11,13 @@ class Workout(models.Model):
     def __str__(self):
         return self.name
 
-        
+
 class Exercise(models.Model):
     category = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     sets = models.IntegerField()
     reps = models.IntegerField()
-    weight_lifted = models.IntegerField()
+    weight_lifted = models.CharField(max_length=200)
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE, related_name='exercises')
 
     def __str__(self):

@@ -22,24 +22,61 @@
     <h1>New Workout</h1>
     <br>
     <table>
-        {% for exercise in exercises %}
-        {% endfor %}
+        <!-- {% for exercise in exercises %}
+        {% endfor %} -->
     </table>
+    <span style="display: block;">Exercise</span>
     <form action="{% url 'log_app:new_workout' %}" method="post">
-        {% csrf_token %}
-        <select v-model="category" v-on:change="get_exercises">
-            <option value="">Select a Category</option>
-            <option v-for="category in categories" v-bind:value="category.id">[[category.name]]</option>
-        </select>
-        <select v-show="exercises.length > 0" v-model="exercise">
-            <option value="">Select an Exercise</option>
-            <option v-for="exercise in exercises" v-bind:value="exercise.id">[[exercise.name]]</option>
-        </select>
-        <select v-model="set">
-            <option v-for="set in sets" v-bind:value="set">[[set]]</option>
-        </select>
+        <div class="form-group">
+            {% csrf_token %}
+            <select name="category" v-model="category" v-on:change="get_exercises">
+                <option value="">Select a Category</option>
+                <option v-for="category in categories" v-bind:value="category.id">[[category.name]]</option>
+            </select>
 
-        <!-- <button v-on:click="add_exercise">add exercise</button> -->
+            <select name="exercise" v-show="exercises.length > 0" v-model="exercise">
+                <option value="">Select an Exercise</option>
+                <option v-for="exercise in exercises" v-bind:value="exercise.name">[[exercise.name]]</option>
+            </select>
+            <select v-model="set" disabled>
+                <option value="">Sets</option>
+                <option v-for="set in sets" v-bind:value="set">[[set]]</option>
+            </select>
+            <br>
+            <span style="display: block;">Set 1</span>
+            <select name="set1_reps" v-model="set1_reps">
+                <option value="">Number of Reps</option>
+                <option v-for="set1_reps in reps" v-bind:value="set1_reps">[[set1_reps]]</option>
+            </select>
+            <input name="set1_weight_lifted" type="text" v-model="set1_weight_lifted"
+                placeholder="Enter weight lifted" />
+            <br>
+            <span style="display: block;">Set 2</span>
+            <select name="set2_reps" v-model="set2_reps">
+                <option value="">Number of Reps</option>
+                <option v-for="set2_reps in reps" v-bind:value="set2_reps">[[set2_reps]]</option>
+            </select>
+            <input name="set2_weight_lifted" type="text" v-model="set2_weight_lifted"
+                placeholder="Enter weight lifted" />
+            <br>
+            <span style="display: block;">Set 3</span>
+            <select name="set3_reps" v-model="set3_reps">
+                <option value="">Number of Reps</option>
+                <option v-for="set3_reps in reps" v-bind:value="set3_reps">[[set3_reps]]</option>
+            </select>
+            <input name="set3_weight_lifted" type="text" v-model="set3_weight_lifted"
+                placeholder="Enter weight lifted" />
+            <br>
+
+            <span style="display: block;">Set 4</span>
+            <select name="set4_reps" v-model="set4_reps">
+                <option value="">Number of Reps</option>
+                <option v-for="set4_reps in reps" v-bind:value="set4_reps">[[set4_reps]]</option>
+            </select>
+            <input name="set4_weight_lifted" type="text" v-model="set4_weight_lifted"
+                placeholder="Enter weight lifted" />
+            <button type="submit">submit</button>
+        </div>
     </form>
 </div>
 <script type="text/javascript">
@@ -47,14 +84,21 @@
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
-            exercise: "",
-            exercises: [],
-            category: "",
+            category: '',
             categories: [],
-            set: "",
-            sets: [1,2,3,4,5,6],
-            reps: "",
-            weight_lifted: "",
+            exercise: '',
+            exercises: [],
+            set: '',
+            sets: [],
+            reps: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+            set1_reps: '',
+            set2_reps: '',
+            set3_reps: '',
+            set4_reps: '',
+            set1_weight_lifted: '',
+            set2_weight_lifted: '',
+            set3_weight_lifted: '',
+            set4_weight_lifted: '',
         },
         methods: {
             get_exercises: function () {
@@ -64,14 +108,17 @@
                     url: `https://wger.de/api/v2/exercise/?category=${this.category}&language=2&license_author=wger.de`,
                     headers: { Authorization: wger_api_key },
                 })
-                .then(response => {
-                    console.log(response.data)
-                    this.exercises = response.data
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+                    .then(response => {
+                        console.log(response.data)
+                        this.exercises = response.data
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
             }
+        },
+        addSet: function () {
+            alert('Add a set feild!')
         },
         created: function () {
             axios({

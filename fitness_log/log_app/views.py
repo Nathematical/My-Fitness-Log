@@ -11,6 +11,8 @@ def main(request):
 
 @login_required
 def new_workout(request):
+    if request.method == "POST":
+        print(request.POST)
     return render(request, 'log_app/workout.html')
 
 @login_required

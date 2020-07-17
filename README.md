@@ -46,13 +46,13 @@ A workout planner built with [django](https://www.djangoproject.com) that genera
 
 - Week 1
   - [x] create django project
-  - [ ] create models
+- Week 2
+  - [x] create user models
   - [x] user registration
   - [x] user log in
-- Week 2
-  - [ ] create muscle groups (types)
-  - [ ] custom management command to load exercises into database
-  - [ ] allow user to make own workout
-  - [ ] allow user to add workouts
+  - [x] allow user select muscle groups (types)
 - Week 3
+  - [x] create workout models
+  - [x] allow user to make own workout
+  - [ ] allow user to save workouts
   - [ ] styling, motivational quote
